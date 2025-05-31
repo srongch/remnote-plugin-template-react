@@ -1,17 +1,16 @@
 {
+  "author": "bigboss",
+  "name": "tts",
+  "description": "dfg",
+  "enableOnMobile": true,
+  "id": "bigboss-sbtfokj",
+  "repoUrl": "https://github.com/bigboss-ai/tts",
   "manifestVersion": 1,
-  "id": "plugin_template",
-  "name": "Plugin Template",
-  "author": "remnote",
-  "repoUrl": "",
   "version": {
     "major": 0,
     "minor": 0,
     "patch": 1
   },
-  "theme": [],
-  "enableOnMobile": false,
-  "description": "",
   "requestNative": false,
   "requiredScopes": [
     {

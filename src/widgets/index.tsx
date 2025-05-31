@@ -3,43 +3,29 @@ import '../style.css';
 import '../App.css';
 
 async function onActivate(plugin: ReactRNPlugin) {
-  // Register settings
-  await plugin.settings.registerStringSetting({
-    id: 'name',
-    title: 'What is your Name?',
-    defaultValue: 'Bob',
+  await plugin.app.registerWidget('audio_manager_widget', WidgetLocation.TopBar, {
+    dimensions: { height: 'auto', width: '100%' },
+    widgetTabIcon: '🎧',
+    widgetTabTitle: 'Manage Audio',
   });
-
-  await plugin.settings.registerBooleanSetting({
-    id: 'pizza',
-    title: 'Do you like pizza?',
-    defaultValue: true,
-  });
-
-  await plugin.settings.registerNumberSetting({
-    id: 'favorite-number',
-    title: 'What is your favorite number?',
-    defaultValue: 42,
-  });
-
-  // A command that inserts text into the editor if focused.
-  await plugin.app.registerCommand({
-    id: 'editor-command',
-    name: 'Editor Command',
-    action: async () => {
-      plugin.editor.insertPlainText('Hello World!');
+  await plugin.app.registerWidget(
+    'text_widget',
+    WidgetLocation.SelectedTextMenu,
+    {
+      dimensions: {
+        height: 'auto',
+        width: '100%',
+      },
+      widgetTabIcon: 'https://cdn-icons-png.flaticon.com/512/2069/2069571.png',
+      widgetTabTitle: 'Dictionary',
     },
-  });
-
-  // Show a toast notification to the user.
-  await plugin.app.toast("I'm a toast!");
-
+  );
   // Register a sidebar widget.
   await plugin.app.registerWidget('sample_widget', WidgetLocation.RightSidebar, {
     dimensions: { height: 'auto', width: '100%' },
   });
 }
 
-async function onDeactivate(_: ReactRNPlugin) {}
+async function onDeactivate(_: ReactRNPlugin) { }
 
 declareIndexPlugin(onActivate, onDeactivate);
